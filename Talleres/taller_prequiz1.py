@@ -17,7 +17,7 @@ _numeroPacientes = int  (input (PREGUNTA_NUMERO_PACIENTES))
 _numeroPacientesUCI = int (input (CANTIDAD_PACIENTES_UCI))
 if ((_numeroPacientes > 0) and (_numeroPacientes <= 1000)) :
     print (RIESGO_BAJO)
-elif ((_numeroPacientes >= 1000) and (_numeroPacientes <= 5000)) :
+elif ((_numeroPacientes >= 1001) and (_numeroPacientes <= 5000)) :
     print (RIESGO_MEDIO)    
 else: 
     print (RIESGO_ALTO)

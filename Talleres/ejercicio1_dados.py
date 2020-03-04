@@ -16,5 +16,5 @@ while (suma != NUMERO_DESEADO) :
     dado2 = random.randint (1,6)
     suma = dado1 + dado2
     print (dado1 , dado2)
-print (MENSAJE_ACERTADO)
+print ( suma, MENSAJE_ACERTADO) 
 #--------Codigo------------#

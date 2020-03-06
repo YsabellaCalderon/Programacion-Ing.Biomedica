@@ -17,6 +17,6 @@ print (MENSAJE_LETRA)
 while (letra_ingresada not in PALABRA_SECRETA) :
     print (MENSAJE_ERROR)
     letra_ingresada = input (MENSAJE_LETRA)
-print (MENSAJE_FELICIDADES.format (PALABRA_SECRETA))
+print (MENSAJE_FELICIDADES , PALABRA_SECRETA)
 
 

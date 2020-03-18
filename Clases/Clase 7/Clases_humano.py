@@ -1,7 +1,7 @@
 class Humano () :      #clase#
     def __init__(self , nombre ) :
 
-        print ("hola")
+       
         self.raza = "ser humano"
         self.nombre = nombre
         self.estatura = 1.60
@@ -12,7 +12,7 @@ class Humano () :      #clase#
         self.peso_3 = 58
         self.genero = "femenino"
 
-
+print ("hola")
 ser_humano = Humano ("ysabella")  #objeto#
 ser_humano_2 = Humano ("valeria")
 ser_humano_3 = Humano ("Marella")

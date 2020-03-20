@@ -1,34 +1,37 @@
 class Humano () :      #clase#
-    def __init__(self , nombre ) :
+    def __init__(self , nombre , estatura , peso , genero , edad) :
 
        
         self.raza = "ser humano"
-        self.nombre = nombre
-        self.estatura = 1.60
-        self.estatura_2 = 1.65 
-        self.estatura_3 = 1.55
-        self.peso = 56
-        self.peso_2 = 55
-        self.peso_3 = 58
-        self.genero = "femenino"
+        self.name = nombre
+        self.height = estatura
+        self.weight = peso
+        self.gender = genero
+        self.age = edad 
+        print ("hola a todos mi raza es", self.raza, "mi nombre es", self.name)
 
-print ("hola")
-ser_humano = Humano ("ysabella")  #objeto#
-ser_humano_2 = Humano ("valeria")
-ser_humano_3 = Humano ("Marella")
-print (ser_humano.raza)
-print (ser_humano.nombre)
-print (ser_humano.estatura)
-print (ser_humano.peso)
-print (ser_humano.genero)
-print (ser_humano_2.raza)
-print (ser_humano_2.nombre)
-print (ser_humano_2.estatura_2)
-print (ser_humano_2.peso_2)
-print (ser_humano_2.genero)
-print (ser_humano_3.raza)
-print (ser_humano_3.nombre)
-print (ser_humano_3.estatura_3)
-print (ser_humano_3.peso_3)
-print (ser_humano_3.genero)
+    def mostrar_atributos (self) :
+        print ("mi nombre es",self.name)
+        print ("mi estaura es",self.height)
+        print ("mi genero es",self.gender)
+        print ("mi peso es",self.weight)
+        print ("mi edad es",self.age)
+
+    def caminar (self,cantidad_pasos) :
+        for i in range (cantidad_pasos):
+            print ("he caminado", i+1, "pasos")
+
+ser_humano_1 = Humano ("ysabella" , 1.60 , "femenino" , 56 , 19)  
+ser_humano_2 = Humano ("valeria" , 1.65 , "Femenino" , 55  , 19)
+ser_humano_3 = Humano ("Emiliano" , 1.70 , "Masculino" , 70 , 20)
+
+ser_humano_1.mostrar_atributos ()
+ser_humano_2.mostrar_atributos ()
+ser_humano_3.mostrar_atributos ()
+
+ser_humano_1.caminar(10)
+ser_humano_2.caminar(10)
+ser_humano_3.caminar(10)
+
+
 

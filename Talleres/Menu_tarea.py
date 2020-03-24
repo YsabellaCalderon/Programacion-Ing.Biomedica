@@ -55,10 +55,19 @@ print (MENSAJE_NUMERO)
 
 while (_numeroIngresado == 4) :
     print (_listaProductos,productos)
-    _listaProductos = input("por favor ingrese el producto que ya no desea comprar :")
-    elemento = input 
-    _listaProductos = list.remove (elemento)
-    
+    _productos = input("por favor ingrese el producto que ya no desea comprar :")
+    posicionProductoEliminar = "no existe"
+    for i in range (len(_listaProductos)) :
+        if (_productos == _listaProductos [i]) :
+            input ("esta seguro de que desea eliminar este producto?")
+            posicionProductoEliminar = i
+    if (posicionProductoEliminar != "no existe"):
+        eliminado = _listaProductos.pop (posicionProductoEliminar)
+        print ("se ha eliminado el producto existosamente",eliminado)
+    else :
+        print ("el producto que desea eliminar no fue encontrado")
+        print (_listaProductos)
+   
 print (MENSAJE_NUMERO)
 
 while (_numeroIngresado == 5) :

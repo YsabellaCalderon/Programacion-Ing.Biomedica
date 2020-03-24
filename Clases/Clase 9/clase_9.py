@@ -24,7 +24,7 @@ def mostrar_dos_listas (lista_1 , lista_2) :
         for i in range (len(lista_1)):
             print(lista_1[i], lista_2 [i])
     else :
-        print ("no se puede mostrar unno a uno")
+        print ("no se puede mostrar uno a uno")
 
  
 def bienvenida() :

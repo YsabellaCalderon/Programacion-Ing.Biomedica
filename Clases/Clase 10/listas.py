@@ -119,3 +119,4 @@ eliminarPaciente("se ha eliminado el paciente",ListaEdadesIniciales,5)
 
 
     
+

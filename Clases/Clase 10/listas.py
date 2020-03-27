@@ -5,7 +5,7 @@ ListaEdadesIniciales = [1,2,4,8,16,32,64]
 #Muestre la lista de las edades ingresadas del dia de hoy
 # luego muestra la lista de la suma de las edades iniciales y la de hoy
 # mostrar: edad promedio
-# mostrar: el paciente con mayor edad 
+# mostrar: el paciente con mayor edad  
 # mostrar: el paciente mas joven
 # mostrar: la lista en orden decreciente y creciente
 # ingresar en la posicion 4 una nueva edad de 87  (error)

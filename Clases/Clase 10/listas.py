@@ -56,7 +56,7 @@ def unir_listas (ListaEdadesIniciales,ListaEdadesNueva):
     for i in range (len(ListaEdadesIniciales)):
         print (ListaEdadesIniciales [i])
         posicion += 1
-
+    
 def promedioListas (lista):
     suma = 0
     for elemento in ListaEdadesIniciales:

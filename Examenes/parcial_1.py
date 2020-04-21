@@ -51,9 +51,9 @@ def main():
     while (_eleccion_usuario!= 4):
         _eleccion_usuario = int(input(PREGUNTA_MENU))
         if (_eleccion_usuario==1):
-            Estudiantes (nombre,edad,genero,colegio)
+            print (Estudiantes)
         elif (_eleccion_usuario ==2):
-            Profesores (nombre_profesor,edad_profesor,nivel_educativo)
+           print Profesores (nombre_profesor,edad_profesor,nivel_educativo)
         elif (_eleccion_usuario == 3):
             Directores (nombre_profesor,edad_profesor,nivel_educativo)
         elif (_eleccion_usuario == 4):

@@ -15,6 +15,6 @@ def mostrar_lineas (lista_lineas):
 
 def agregra_lineas (nombre_noticia , linea):
     noticia = open ("noticia.txt" , 'a')
-    noticia.write ("n\ autor : Sydney Combs ")
+    noticia.write (" autor : Sydney Combs ")
     noticia.close ()
 

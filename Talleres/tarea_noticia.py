@@ -10,4 +10,3 @@ Text = ["Desde el punto de vista profesional, considero que el potencial de alme
 "que funciona como ejemplo para muchas mujeres con los mismos objetivos\n"]
 
 support.escribir_noticia ("opinion.txt",Text)
-support.agregra_lineas ("noticia.txt","\n 17 de Abril","\n National Geographic")

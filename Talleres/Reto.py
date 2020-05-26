@@ -47,11 +47,7 @@ PREGUNTA_NOMBRE = "Por favor ingrese su nombre"
 PREGUNTA_PESO = "ingrese su peso por favor \n "
 MENSAJE_PESO_INVALIDO = "Ingresaste un valor no valido \n"
 PREGUNTA_ESTATURA = "ingrese su estatura \n "
-MENSAJE_ESTATURA_INVALIDA = "Ingresaste un valor no valido \n"
-MENSAJE_BAJO_PESO = "Estas bajo de peso"
-MENSAJE_PESO_SALUDABLE = "Estas en un peso saludable"
-MENSAJE_SOBREPESO = "Tienes sobrepeso"
-MENSAJE_OBESIDAD_MORBIDA = "Tienes obesidad morbida"
+
 #----------Mensajes---------# 
 #----------Entradas---------# 
 _pesoUsuario = 0.0
@@ -65,14 +61,7 @@ _pesoUsuario = float(input(PREGUNTA_PESO))
 _estaturaUsuario = float(input(PREGUNTA_ESTATURA))
 IMC = (_pesoUsuario / (_estaturaUsuario**2))
 print (IMC)
-if (( IMC >= 12) and ( IMC <= 18)) :
-    print (MENSAJE_BAJO_PESO)
-elif ((IMC >= 19) and (IMC <= 24)) :
-    print (MENSAJE_PESO_SALUDABLE)
-elif ((IMC >= 30) and (IMC <= 39)) :
-    print (MENSAJE_SOBREPESO)
-else :
-    print (MENSAJE_OBESIDAD_MORBIDA)
+
 print (MENSAJE_DESPEDIDA_2)
 
 try: 

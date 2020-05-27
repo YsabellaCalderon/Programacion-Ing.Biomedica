@@ -3,7 +3,7 @@ import sys
 import matplotlib.pyplot as plt
 import pandas as p
 #---------Librerias---------#
-#----------Primero----------# #TERMINAR/REVISAR
+#----------Primero----------# 
 #----------Mensajes---------# 
 MENSAJE_BIENVENIDA_1 =  "Bienvenido al programa \n"
 MENSAJE_DESPEDIDA_1 = "Adios, esperamos verlo pronto \n"
@@ -28,26 +28,27 @@ while (validador) :
         plt.xlabel(input (PREGUNTA_EJE_X))
         plt.ylabel(input (PREGUNTA_EJE_Y))
         plt.plot(x,y)
-        plt.savefig("mi_ecg.png")
+        plt.savefig("grafica.png")
         plt.show ()
         plt.close()
     except FileNotFoundError :
         print (MENSAJE_ARCHIVO_INVALIDO)
 
 print (MENSAJE_DESPEDIDA_1)
-#----------Primero----------#
+#----------Primero----------# 
+
 #----------Segundo----------# 
 #----------Mensajes---------# 
 MENSAJE_BIENVENIDA_2 = "Bienvenido al programa, a continuacion podra saber su IMC \n"
 MENSAJE_DESPEDIDA_2 = "Adios, esperamos verlo pronto \n"
 PREGUNTA_NOMBRE = "Por favor ingrese su nombre"
-PREGUNTA_PESO = "ingrese su peso por favor \n "
+PREGUNTA_PESO = "ingrese su peso en kilogramos por favor \n "
 MENSAJE_PESO_INVALIDO = "Ingresaste un valor no valido \n"
 PREGUNTA_ESTATURA = "ingrese su estatura \n "
 MENSAJE_ESTATURA_INVALIDA = "Ingresaste un valor no valido \n"
 PREGUNTA_EDAD = "Por favor ingrese su edad \n"
-
 #----------Mensajes---------# 
+
 #----------Entradas---------# 
 _pesoUsuario = 0.0
 _edadUsuario = 0
@@ -70,90 +71,72 @@ try:
 except ValueError: 
     print (MENSAJE_PESO_INVALIDO)
     print (MENSAJE_ESTATURA_INVALIDA)
-
 #----------Segundo----------# 
+
 #----------Tercero----------# 
 #----------Mensajes---------# 
-MENSAJE_BIENVENIDA_3 = """Bienvenido al programa,
-a continuacion podra generar un grafico de barras
-para ver las cantidades de sus productos \n"""
-PREGUNTA_KILOS_ARROZ = "por favor ingrese la cantidad que tiene de arroz \n"
-PREGUNTA_KILOS_LENTEJAS = "por favor ingrese la cantidad que tiene de lentejas \n"
-PREGUNTA_KILOS_FRIJOLES = "por favor ingrese la cantidad que tiene de frijoles \n"
-PREGUNTA_KILOS_PAPAS = "por favor ingrese la cantidad que tiene de papas \n"
-MENSAJE_DESPEDIDA_3 = """Esperamos que la informacion haya sido de utilidad,
-esperamos verlo pronto \n"""
+MENSAJE_BIENVENIDA_3 = """Bienvenido al programa, a continuacion podra observar el grafico
+con la informacion de los PPG , ECG y EEG \n"""
 #----------Mensajes---------# 
 #----------Entradas---------# 
-_kilosArroz = 0
-_kilosFrijoles = 0
-_kilosLentejas = 0
-_kilosPapa = 0 
-#----------Entradas---------# 
-
 print (MENSAJE_BIENVENIDA_3)
 
-_kilosArroz = float (input(PREGUNTA_KILOS_ARROZ))
-_kilosFrijoles = float (input(PREGUNTA_KILOS_FRIJOLES))
-_kilosLentejas = float (input(PREGUNTA_KILOS_LENTEJAS))
-_kilosPapa = float (input(PREGUNTA_KILOS_PAPAS))
+ecg = p.read_csv("ecg.csv" , encoding='UTF-8',header=0, delimiter=";").to_dict()
+eeg = p.read_csv("eeg.csv" , encoding='UTF-8',header=0, delimiter=";").to_dict()
+ppg = p.read_csv("ppg.csv" , encoding='UTF-8',header=0, delimiter=";").to_dict()
+x = list((ecg["muestra"].values()),((eeg["muestra"].values())),((ppg["muestra"].values())))
+y = list((ecg["valor"].values()),((eeg["valor"].values())),((ppg["valor"].values())))
+plt.title("ECG , EEG , PPG -uV")
+plt.xlabel("Tiempo(ms)")
+plt.ylabel("Volataje(uV)")
+plt.plot(x,y)
+plt.legend ("ECG","EEG","PPG")
+plt.savefig("grafico_ecg_eeg_ppg.png")
+plt.close()
 
-cantidades = { 
-"Producto" : ["Arroz" , "Frijoles" , "Lentejas" , "Papas"] , 
-"Kilogramos" :[_kilosArroz , _kilosFrijoles , _kilosLentejas , _kilosPapa] }
+picos = {
+    "Numero de Picos" : [9,10,9],
+    "Estudio" : ["ECG","EEG","PPG"] 
+}
 
-plt.bar (cantidades ["Producto"] , cantidades ["Kilogramos"], color = "g" , alpha = 0.5)
-plt.title("Cantidades Productos Usuario")
-plt.xlabel("Productos") 
-plt.ylabel("Peso (kg)")
-plt.savefig("Cantidades Productos Usuario.png") 
+plt.bar(picos["Numero de Picos"],picos["Estudio"], color ="b", alpha=0.5)
+plt.title("Picos Estudios")
+plt.xlabel("Nuemro de Picos") 
+plt.ylabel("Estudio")
+plt.savefig("Picos.png") 
 plt.close() 
 plt.show()
-
-print (MENSAJE_DESPEDIDA_3)
 #----------Tercero----------# 
-
 #-----------Cuarto----------# 
 #----------Mensajes---------# 
-MENSAJE_BIENVENIDA_4 = """Bienvenido al programa, 
-a continuacion podra hablarnos un poco acerca de como se ha sentido estos ultimos dias \n"""
-MENSAJE_PARRAFO = """Por favor ingrese un parrafo acerca de como se ha sentido ultimamente, 
-recuerde que este debe terminar en punto (.) \n"""
-MENSAJE_PARRAFO_INVALIDO = """El parrafo que ha ingresado no es valido,
-verifique sus signos de puntuación \n"""
-MENSAJE_DESPEDIDA_4 = "Adios, esperamos verlo pronto"
+MENSAJE_BIENVENIDA_4 = """ Bienvenido, a continuacion podra observar un grafico en el cual
+se observa los lugares en los que mas he pasado tiempo en mi casa durante este tiempo \n"""
+MENSAJE_DESPEDIDA_4 = "Adios, esperamos verlo pronto \n"
 #----------Mensajes---------# 
-def valid_paragraph  (paragraph):
-    assert(paragraph.endswith("."))
-    return False
-validador = True
 
-while (validador):
-    paragraph =  input(MENSAJE_PARRAFO)
-    try:
-        validador = valid_paragraph(paragraph)
-    except AssertionError:
-        print(MENSAJE_PARRAFO_INVALIDO)
+print (MENSAJE_BIENVENIDA_4)
+
+labels = 'Habitacion' , 'Estudio' , 'Cocina' , 'Sala' , 'Parque de Perros'
+sizes = [10 , 60 , 15 , 5 , 20]
+explode = (0 , 0.1 , 0 , 0  , 0) 
+plt.pie(sizes, explode=explode, labels=labels, shadow=False, startangle=0)
+plt.title("Tiempo en Cuarentena")
+plt.savefig("Tiempo_curentena.png")
+plt.show()
 
 print (MENSAJE_DESPEDIDA_4)
 #-----------Cuarto----------# 
 
-#-----------Quinto----------# 
-#----------Mensajes---------# 
-MENSAJE_BIENVENIDA_5 = """ Bienvenido, a continuacion podra observar un grafico en el cual
-se observa un estudio en la compra de ciertos productos \n"""
-MENSAJE_DESPEDIDA_5 = "Adios, esperamos verlo pronto \n"
-#----------Mensajes---------# 
+#----------Quinto-----------#
+#----------Mensajes---------#
+APRENDIZAJE_SUPERVISADO_Y_NO_SUPERVISADO = """ Desde mi punto de vista me parece que hay una gran diferencia entre los dos
+dependiendo de la persona, ya que no todos tenemos la misma capacidad de concentración y disciplina a la hora de estudiar o
+trabajar. El aprendizaje supervisado te obliga (por sí decirlo), a prestar atención constantemente, a no distraerte y a 
+participar; mientras que en el aprendizaje no supervisado, queda totalmete de tu parte el hecho de aprender, concentrate y 
+participar. Ademas de que en esta situación pueden existir muchos distractores en el ambiente, ya sea el ruido, el célular, 
+la mascota, etc.
 
-print (MENSAJE_BIENVENIDA_5)
+Como conclusion, siento que hay ser muy consiente a la hora del estudio no supervisado y saber que hay momentos para todo y
+para nosotros principalmente, debemos esforzarnos por ser juiciosos y un poco autodidactas en el estudio en casa"""
 
-labels = 'Leche', 'Huevos', 'Vino', 'Arroz' , 'Queso' , 'Salchichas'
-sizes = [12 , 8 , 4 , 26 , 30 , 20]
-explode = (0 , 0 , 0 , 0 , 0.1 , 0) 
-plt.pie(sizes, explode=explode, labels=labels, shadow=False, startangle=0)
-plt.title("Estudio Compras")
-plt.savefig("Estudio_compras.png")
-plt.show()
-
-print (MENSAJE_DESPEDIDA_5)
-#-----------Quinto----------# 
+print (APRENDIZAJE_SUPERVISADO_Y_NO_SUPERVISADO)

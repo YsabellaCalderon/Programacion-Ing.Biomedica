@@ -13,6 +13,8 @@ PREGUNTA_TITULO = "Por favor ingrese el titulo del grafico \n"
 PREGUNTA_EJE_X = "Por favor ingrese el nombre del eje X \n"
 PREGUNTA_EJE_Y = "Por favor ingrese el nombre del eje Y \n"
 #----------Mensajes---------# 
+print (MENSAJE_BIENVENIDA_1)
+
 def valid_archivo (PREGUNTA_NOMBRE_ARCHIVO) :
     assert (open(archivo))
     return False

@@ -28,7 +28,7 @@ while (validador) :
         plt.xlabel(input (PREGUNTA_EJE_X))
         plt.ylabel(input (PREGUNTA_EJE_Y))
         plt.plot(x,y)
-        plt.savefig("mi_ecg.png")
+        plt.savefig("grafico_usuario.png")
         plt.show ()
         plt.close()
     except FileNotFoundError :

@@ -78,23 +78,10 @@ except ValueError:
 #----------Tercero----------# 
 #----------Mensajes---------# 
 MENSAJE_BIENVENIDA_3 = """Bienvenido al programa, a continuacion podra observar el grafico
-con la informacion de los PPG , ECG y EEG \n"""
+con la informacion de los picos de lso estudios PPG , ECG y EEG \n"""
 #----------Mensajes---------# 
 #----------Entradas---------# 
 print (MENSAJE_BIENVENIDA_3)
-
-ecg = p.read_csv("ecg.csv" , encoding='UTF-8',header=0, delimiter=";").to_dict()
-eeg = p.read_csv("eeg.csv" , encoding='UTF-8',header=0, delimiter=";").to_dict()
-ppg = p.read_csv("ppg.csv" , encoding='UTF-8',header=0, delimiter=";").to_dict()
-x = list((ecg["muestra"].values()),((eeg["muestra"].values())),((ppg["muestra"].values())))
-y = list((ecg["valor"].values()),((eeg["valor"].values())),((ppg["valor"].values())))
-plt.title("ECG , EEG , PPG -uV")
-plt.xlabel("Tiempo(ms)")
-plt.ylabel("Volataje(uV)")
-plt.plot(x,y)
-plt.legend ("ECG","EEG","PPG")
-plt.savefig("grafico_ecg_eeg_ppg.png")
-plt.close()
 
 picos = {
     "Numero de Picos" : [9,10,9],
